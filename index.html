@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Iso Quiz Runner — Health & Safety (Latest)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Iso Quiz Runner — Health & Safety</h1>
+    <div id="hud">
+      <div id="score">Score: 0</div>
+      <div id="best">Best: 0</div>
+      <div id="controlsTop">
+        <button id="btnSound" title="Toggle sound">🔊</button>
+        <button id="btnPause" title="Pause">⏸</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <canvas id="game"></canvas>
+    <div id="overlay" class="menu">
+      <div class="panel" id="startPanel">
+        <h2>Iso Quiz Runner</h2>
+        <p>Move across the isometric grid, avoid cars, then choose the correct gate for each health & safety question.</p>
+        <div class="panel-row">
+          <button id="startBtn">Play</button>
+          <button id="howBtn">How to play</button>
+        </div>
+        <div class="panel-row small">Tap/click or use arrows / WASD. On mobile use on-screen buttons.</div>
+      </div>
+
+      <div class="panel hidden" id="questionPanel">
+        <h3 id="qText">Question text</h3>
+        <div id="qOptions">Left / Right labels shown on gates</div>
+        <div class="panel-row">
+          <button id="qContinue">Close</button>
+        </div>
+      </div>
+
+      <div class="panel hidden" id="pausePanel">
+        <h3>Paused</h3>
+        <div class="panel-row">
+          <button id="resumeBtn">Resume</button>
+          <button id="restartBtn">Restart</button>
+        </div>
+      </div>
+
+      <div class="panel hidden" id="howPanel">
+        <h3>How to play</h3>
+        <ul>
+          <li>Use Arrow keys / WASD or on-screen buttons to move one tile at a time.</li>
+          <li>Avoid cars on road rows — hitting a car respawns you.</li>
+          <li>At the top row there are two gates (left & right). Go through the gate labelled with the correct answer.</li>
+          <li>Correct +10 points, wrong -5. Best score saved locally.</li>
+        </ul>
+        <div class="panel-row">
+          <button id="howClose">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="touchControls" class="hidden">
+      <button class="tbtn" data-dir="up">▲</button>
+      <div class="trow">
+        <button class="tbtn" data-dir="left">◀</button>
+        <button class="tbtn" data-dir="down">▼</button>
+        <button class="tbtn" data-dir="right">▶</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div id="message"></div>
+  </footer>
+
+  <script src="game.js"></script>
+</body>
+</html>
